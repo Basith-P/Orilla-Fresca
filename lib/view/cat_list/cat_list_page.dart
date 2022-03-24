@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orilla_fresca/config/theme/colors.dart';
 import 'package:orilla_fresca/helper/icon_helper.dart';
+import 'package:orilla_fresca/view/selected_category/selected_category_page.dart';
 import 'package:orilla_fresca/widgets/icon_font.dart';
 
 import '../../models/category.dart';
@@ -55,7 +56,11 @@ class CategoryListPage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               itemCount: _categories.length,
               itemBuilder: (BuildContext context, int i) {
-                return CategoryCard(category: _categories[i]);
+                return CategoryCard(
+                  category: _categories[i],
+                  onClick: () => Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => SelectecCategoryPage())),
+                );
               },
             ),
           ),
