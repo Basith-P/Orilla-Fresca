@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/view/cat_list/cat_list_page.dart';
 
 import 'view/splash/splash_page.dart';
 import 'view/welcome/welcome_page.dart';
@@ -16,8 +17,8 @@ class OrillaFrescaApp extends StatelessWidget {
       title: 'Orilla Fresca',
       theme: ThemeData(fontFamily: 'Raleway'),
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(
-        goToPage: WelcomePage(),
+      home: SplashPage(
+        goToPage: CategoryListPage(),
         duration: 3,
       ),
     );

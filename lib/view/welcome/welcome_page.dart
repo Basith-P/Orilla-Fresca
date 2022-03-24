@@ -83,7 +83,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextButton(
                   onPressed: () => Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => const CategoryListPage())),
+                      context, MaterialPageRoute(builder: (context) => CategoryListPage())),
                   style: TextButton.styleFrom(
                     primary: AppColors.primary,
                     shape: const StadiumBorder(
