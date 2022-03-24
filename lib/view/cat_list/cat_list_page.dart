@@ -59,7 +59,9 @@ class CategoryListPage extends StatelessWidget {
                 return CategoryCard(
                   category: _categories[i],
                   onClick: () => Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => SelectecCategoryPage())),
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SelectecCategoryPage(_categories[i]))),
                 );
               },
             ),

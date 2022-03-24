@@ -1,5 +1,6 @@
 import '../config/theme/colors.dart';
 import '../models/category.dart';
+import '../models/sub_category.dart';
 import 'icon_helper.dart';
 
 class Utils {
@@ -10,41 +11,40 @@ class Utils {
         name: "Carnes",
         imgName: "cat1",
         icon: IconFontHelper.meats,
-        subCategories: [],
-        // subCategories: [
-        //   SubCategory(
-        //       color: AppColors.meats, name: "Cerdo", imgName: "cat1_1", icon: IconFontHelper.meats),
-        //   SubCategory(
-        //     name: "Vaca",
-        //     imgName: "cat1_2",
-        //     icon: IconFontHelper.meats,
-        //     color: AppColors.meats,
-        //   ),
-        //   SubCategory(
-        //     name: "Gallina",
-        //     imgName: "cat1_3",
-        //     icon: IconFontHelper.meats,
-        //     color: AppColors.meats,
-        //   ),
-        //   SubCategory(
-        //     name: "Pavo",
-        //     imgName: "cat1_4",
-        //     icon: IconFontHelper.meats,
-        //     color: AppColors.meats,
-        //   ),
-        //   SubCategory(
-        //     name: "Chivo",
-        //     imgName: "cat1_5",
-        //     icon: IconFontHelper.meats,
-        //     color: AppColors.meats,
-        //   ),
-        //   SubCategory(
-        //     name: "Conejo",
-        //     imgName: "cat1_6",
-        //     icon: IconFontHelper.meats,
-        //     color: AppColors.meats,
-        //   )
-        // ],
+        subCategories: [
+          SubCategoryModel(
+              color: AppColors.meats, name: "Cerdo", imgName: "cat1_1", icon: IconFontHelper.meats),
+          SubCategoryModel(
+            name: "Vaca",
+            imgName: "cat1_2",
+            icon: IconFontHelper.meats,
+            color: AppColors.meats,
+          ),
+          SubCategoryModel(
+            name: "Gallina",
+            imgName: "cat1_3",
+            icon: IconFontHelper.meats,
+            color: AppColors.meats,
+          ),
+          SubCategoryModel(
+            name: "Pavo",
+            imgName: "cat1_4",
+            icon: IconFontHelper.meats,
+            color: AppColors.meats,
+          ),
+          SubCategoryModel(
+            name: "Chivo",
+            imgName: "cat1_5",
+            icon: IconFontHelper.meats,
+            color: AppColors.meats,
+          ),
+          SubCategoryModel(
+            name: "Conejo",
+            imgName: "cat1_6",
+            icon: IconFontHelper.meats,
+            color: AppColors.meats,
+          )
+        ],
       ),
       CategoryModel(
           color: AppColors.fruits,
