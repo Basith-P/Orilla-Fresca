@@ -1,5 +1,6 @@
 import '../config/theme/colors.dart';
 import '../models/category.dart';
+import '../models/category_part.dart';
 import '../models/sub_category.dart';
 import 'icon_helper.dart';
 
@@ -13,63 +14,106 @@ class Utils {
         icon: IconFontHelper.meats,
         subCategories: [
           SubCategoryModel(
-              color: AppColors.meats, name: "Cerdo", imgName: "cat1_1", icon: IconFontHelper.meats),
+            color: AppColors.meats,
+            name: "Cerdo",
+            imgName: "cat1_1",
+            icon: IconFontHelper.meats,
+            parts: [
+              CategoryPart(name: 'Jamon', imgName: 'cat1_1_p1', isSelected: false),
+              CategoryPart(name: 'Patas', imgName: 'cat1_1_p2', isSelected: false),
+              CategoryPart(name: 'Tocineta', imgName: 'cat1_1_p3', isSelected: false),
+              CategoryPart(name: 'Lomo', imgName: 'cat1_1_p4', isSelected: false),
+              CategoryPart(name: 'Costillas', imgName: 'cat1_1_p5', isSelected: false),
+              CategoryPart(name: 'Panza', imgName: 'cat1_1_p6', isSelected: false)
+            ],
+          ),
           SubCategoryModel(
             name: "Vaca",
             imgName: "cat1_2",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            parts: [
+              CategoryPart(name: 'Costilla', imgName: 'cat1_3_p1', isSelected: false),
+              CategoryPart(name: 'Ribeye', imgName: 'cat1_3_p2', isSelected: false),
+              CategoryPart(name: 'Sirloin', imgName: 'cat1_3_p3', isSelected: false),
+              CategoryPart(name: 'Rabo', imgName: 'cat1_3_p4', isSelected: false),
+            ],
           ),
           SubCategoryModel(
             name: "Gallina",
             imgName: "cat1_3",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            parts: [
+              CategoryPart(name: 'Alitas', imgName: 'cat1_2_p1', isSelected: false),
+              CategoryPart(name: 'Pechuga', imgName: 'cat1_2_p2', isSelected: false),
+              CategoryPart(name: 'Muslo', imgName: 'cat1_2_p3', isSelected: false),
+              CategoryPart(name: 'Patas', imgName: 'cat1_2_p4', isSelected: false),
+              CategoryPart(name: 'Corazones', imgName: 'cat1_2_p5', isSelected: false),
+            ],
           ),
           SubCategoryModel(
             name: "Pavo",
             imgName: "cat1_4",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            parts: [
+              CategoryPart(name: 'Pechuga', imgName: 'cat1_4_p1', isSelected: false),
+              CategoryPart(name: 'Muslo', imgName: 'cat1_4_p2', isSelected: false),
+              CategoryPart(name: 'Alas', imgName: 'cat1_4_p3', isSelected: false)
+            ],
           ),
           SubCategoryModel(
             name: "Chivo",
             imgName: "cat1_5",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            parts: [
+              CategoryPart(name: 'Chuletas', imgName: 'cat1_5_p1', isSelected: false),
+              CategoryPart(name: 'Lomo', imgName: 'cat1_5_p2', isSelected: false),
+              CategoryPart(name: 'Pierna', imgName: 'cat1_5_p3', isSelected: false)
+            ],
           ),
           SubCategoryModel(
             name: "Conejo",
             imgName: "cat1_6",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
-          )
+            parts: [
+              CategoryPart(name: 'Lomo', imgName: 'cat1_6_p1', isSelected: false),
+              CategoryPart(name: 'Pierna', imgName: 'cat1_6_p2', isSelected: false)
+            ],
+          ),
         ],
       ),
       CategoryModel(
-          color: AppColors.fruits,
-          name: "Frutas",
-          imgName: "cat2",
-          icon: IconFontHelper.fruits,
-          subCategories: []),
+        color: AppColors.fruits,
+        name: "Frutas",
+        imgName: "cat2",
+        icon: IconFontHelper.fruits,
+        subCategories: [],
+      ),
       CategoryModel(
-          color: AppColors.vegs,
-          name: "Vegetales",
-          imgName: "cat3",
-          icon: IconFontHelper.vegs,
-          subCategories: []),
+        color: AppColors.vegs,
+        name: "Vegetales",
+        imgName: "cat3",
+        icon: IconFontHelper.vegs,
+        subCategories: [],
+      ),
       CategoryModel(
-          color: AppColors.seeds,
-          name: "Semillas",
-          imgName: "cat4",
-          icon: IconFontHelper.seeds,
-          subCategories: []),
+        color: AppColors.seeds,
+        name: "Semillas",
+        imgName: "cat4",
+        icon: IconFontHelper.seeds,
+        subCategories: [],
+      ),
       CategoryModel(
-          color: AppColors.pastries,
-          name: "Dulces",
-          imgName: "cat5",
-          icon: IconFontHelper.pastries,
-          subCategories: []),
+        color: AppColors.pastries,
+        name: "Dulces",
+        imgName: "cat5",
+        icon: IconFontHelper.pastries,
+        subCategories: [],
+      ),
       CategoryModel(
           color: AppColors.spices,
           name: "Especies",
