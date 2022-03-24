@@ -5,13 +5,13 @@ class CategoryModel {
   String icon;
   Color color;
   String imgName;
-  List<CategoryModel> subCategories;
+  List<CategoryModel>? subCategories;
 
   CategoryModel({
     required this.name,
     required this.icon,
     required this.color,
     required this.imgName,
-    required this.subCategories,
+    this.subCategories,
   });
 }
