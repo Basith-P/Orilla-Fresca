@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'config/theme/colors.dart';
 import 'helper/icon_helper.dart';
 import 'widgets/icon_font.dart';
 
@@ -45,7 +46,7 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        color: const Color(0xff80c038),
+        color: AppColors.primary,
         child: const IconFont(
           iconName: IconFontHelper.logo,
           size: 100,
@@ -73,24 +74,86 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ClipOval(
-                child: Container(
-                  width: 180,
-                  height: 180,
-                  color: const Color(0xff80c038),
-                  alignment: Alignment.center,
-                  child: const IconFont(
-                    iconName: IconFontHelper.mainLogo,
-                    size: 130,
+          Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: ClipOval(
+                    child: Container(
+                      width: 180,
+                      height: 180,
+                      color: AppColors.primary,
+                      alignment: Alignment.center,
+                      child: const IconFont(
+                        iconName: IconFontHelper.mainLogo,
+                        size: 130,
+                      ),
+                    ),
                   ),
                 ),
-              )
-            ],
-          ))
+                const SizedBox(height: 40),
+                const Text(
+                  'Welcome',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'Fresh Products.\n Healthy. On time',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    backgroundColor: AppColors.primary,
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                  ),
+                  child: const Text(
+                    'Try Now!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    primary: AppColors.primary,
+                    shape: const StadiumBorder(
+                        side: BorderSide(
+                      color: Color(0xff80c038),
+                      width: 2,
+                    )),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                  ),
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(
+                      color: Color(0xff80c038),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
