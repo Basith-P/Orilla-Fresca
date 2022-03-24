@@ -38,7 +38,7 @@ class _MainAppBarState extends State<MainAppBar> {
           padding: const EdgeInsets.all(10),
           child: ClipOval(
             child: Image.asset(
-              'assets/imgs/me.jpg',
+              'assets/imgs/basith.jpg',
               fit: BoxFit.cover,
             ),
           ),

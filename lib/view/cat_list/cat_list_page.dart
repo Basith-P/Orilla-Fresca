@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca/config/theme/colors.dart';
-import 'package:orilla_fresca/helper/icon_helper.dart';
-import 'package:orilla_fresca/view/selected_category/selected_category_page.dart';
-import 'package:orilla_fresca/widgets/icon_font.dart';
-import 'package:orilla_fresca/widgets/main_app_bar.dart';
 
+import '../../config/theme/colors.dart';
+import '../../view/selected_category/selected_category_page.dart';
+import '../../widgets/main_app_bar.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';
 import 'widgets/category_card.dart';

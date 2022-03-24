@@ -1,16 +1,18 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:orilla_fresca/config/theme/colors.dart';
-import 'package:orilla_fresca/models/sub_category.dart';
-import 'package:orilla_fresca/view/cat_list/widgets/category_icon.dart';
-import 'package:orilla_fresca/widgets/main_app_bar.dart';
+
+import '../../config/theme/colors.dart';
+import '../../models/sub_category.dart';
+import '../../view/cat_list/widgets/category_icon.dart';
+import '../../widgets/main_app_bar.dart';
 
 class DetailsPage extends StatefulWidget {
-  const DetailsPage(this.subcategory, {Key? key}) : super(key: key);
+  DetailsPage(this.subcategory, {Key? key}) : super(key: key);
 
   final SubCategoryModel subcategory;
+
+  int amount = 0;
+  double price = 15.0;
+  double cost = 0.0;
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -141,6 +143,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             height: 140,
                             width: 130,
                             decoration: BoxDecoration(
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                               border: subCat.parts[i].isSelected
                                   ? Border.all(color: subCat.color, width: 2)
@@ -154,7 +157,6 @@ class _DetailsPageState extends State<DetailsPage> {
                               ],
                               image: DecorationImage(
                                 image: AssetImage('assets/imgs/${subCat.parts[i].imgName}.png'),
-                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
@@ -168,6 +170,95 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                 ),
+                Container(
+                  padding: const EdgeInsets.all(10.0),
+                  margin: const EdgeInsets.only(left: 40),
+                  child: RichText(
+                    text: const TextSpan(
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black54,
+                      ),
+                      children: [
+                        TextSpan(text: 'Unit: '),
+                        TextSpan(text: 'Libra', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: ' (max: 20)'),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        offset: Offset.zero,
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () => setState(() {
+                          widget.amount++;
+                          widget.cost = widget.price * widget.amount;
+                        }),
+                        icon: const Icon(
+                          Icons.add_circle_outline_rounded,
+                          size: 40,
+                          color: AppColors.meats,
+                        ),
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          style: const TextStyle(color: Colors.black87),
+                          children: [
+                            TextSpan(
+                                text: '${widget.amount}', style: const TextStyle(fontSize: 40)),
+                            const TextSpan(text: 'kgs', style: TextStyle(fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () => setState(() {
+                          if (widget.amount > 0) {
+                            widget.amount--;
+                            widget.cost = widget.price * widget.amount;
+                          }
+                        }),
+                        icon: const Icon(Icons.remove_circle_outline_rounded,
+                            size: 40, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            const TextSpan(text: 'Price: '),
+                            TextSpan(
+                                text: '₹${widget.price}/kg',
+                                style: const TextStyle(fontWeight: FontWeight.bold)),
+                          ],
+                        ),
+                      ),
+                      Text('₹${widget.cost}',
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
