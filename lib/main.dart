@@ -73,6 +73,24 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
+          Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ClipOval(
+                child: Container(
+                  width: 180,
+                  height: 180,
+                  color: const Color(0xff80c038),
+                  alignment: Alignment.center,
+                  child: const IconFont(
+                    iconName: IconFontHelper.mainLogo,
+                    size: 130,
+                  ),
+                ),
+              )
+            ],
+          ))
         ],
       ),
     );
