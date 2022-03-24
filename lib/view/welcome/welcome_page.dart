@@ -48,6 +48,7 @@ class WelcomePage extends StatelessWidget {
                   'Welcome',
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    fontFamily: 'Raleway',
                     color: Colors.white,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
