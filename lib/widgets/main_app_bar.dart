@@ -13,13 +13,13 @@ class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color themeColor;
 
   @override
-  MainAppBarState createState() => MainAppBarState();
+  State<MainAppBar> createState() => _MainAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
 }
 
-class MainAppBarState extends State<MainAppBar> {
+class _MainAppBarState extends State<MainAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
