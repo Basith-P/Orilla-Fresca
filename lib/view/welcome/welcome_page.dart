@@ -43,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 50),
                 const Text(
                   'Welcome',
                   textAlign: TextAlign.center,
@@ -54,16 +54,16 @@ class WelcomePage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 const Text(
-                  'Fresh Products.\n Healthy. On time',
+                  'Fresh Products\nHealthy, On time',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 60),
                 TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
