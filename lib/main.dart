@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:orilla_fresca/helper/icon_helper.dart';
+import 'helper/icon_helper.dart';
+import 'widgets/icon_font.dart';
 
 void main() {
   runApp(const OrillaFrescaApp());
@@ -17,31 +18,6 @@ class OrillaFrescaApp extends StatelessWidget {
       home: SplashPage(
         goToPage: WelcomePage(),
         duration: 3,
-      ),
-    );
-  }
-}
-
-class IconFont extends StatelessWidget {
-  const IconFont({
-    required this.iconName,
-    this.color = Colors.white,
-    this.size = 24,
-    Key? key,
-  }) : super(key: key);
-
-  final String iconName;
-  final Color color;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      iconName,
-      style: TextStyle(
-        fontFamily: 'Orilla',
-        fontSize: size,
-        color: color,
       ),
     );
   }
@@ -85,9 +61,19 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        child: Text('Hello WOrld'),
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.3,
+              child: Image.asset(
+                'assets/imgs/of_main_bg.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
