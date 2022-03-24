@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/widgets/main_app_bar.dart';
 
 import '../../models/category.dart';
 import '../cat_list/widgets/category_icon.dart';
+import '../details/details_page.dart';
 
 class SelectecCategoryPage extends StatelessWidget {
   const SelectecCategoryPage(this.selectedCategory, {Key? key}) : super(key: key);
@@ -11,9 +13,10 @@ class SelectecCategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const MainAppBar(),
       body: Column(
         children: [
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -28,31 +31,35 @@ class SelectecCategoryPage extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 30),
           Expanded(
             child: GridView.count(
               physics: const BouncingScrollPhysics(),
               crossAxisCount: 2,
               children: List.generate(
                 selectedCategory.subCategories!.length,
-                (index) => GestureDetector(
-                  child: GridTile(
+                (index) {
+                  final subcategory = selectedCategory.subCategories![index];
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => DetailsPage(subcategory))),
                     child: Column(
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
-                            'assets/imgs/${selectedCategory.subCategories![index].imgName}.png',
+                            'assets/imgs/${subcategory.imgName}.png',
                             fit: BoxFit.cover,
                             width: 100,
                             height: 100,
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Text(selectedCategory.subCategories![index].name),
+                        Text(subcategory.name),
                       ],
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
             ),
           ),
