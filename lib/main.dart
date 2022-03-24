@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:orilla_fresca/helper/icon_helper.dart';
+
 void main() {
   runApp(const OrillaFrescaApp());
 }
@@ -12,7 +14,10 @@ class OrillaFrescaApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Orilla Fresca',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: SplashPage(
+        goToPage: WelcomePage(),
+        duration: 3,
+      ),
     );
   }
 }
@@ -43,15 +48,46 @@ class IconFont extends StatelessWidget {
 }
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({
+    required this.goToPage,
+    this.duration = 0,
+    Key? key,
+  }) : super(key: key);
+
+  final int duration;
+  final Widget goToPage;
+
+  @override
+  Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: duration), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => goToPage),
+      );
+    });
+
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        color: const Color(0xff80c038),
+        child: const IconFont(
+          iconName: IconFontHelper.logo,
+          size: 100,
+        ),
+      ),
+    );
+  }
+}
+
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        color: const Color(0xff80c038),
-        child: const IconFont(iconName: 'a', size: 100),
+        child: Text('Hello WOrld'),
       ),
     );
   }
