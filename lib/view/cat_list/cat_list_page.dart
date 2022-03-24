@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/config/theme/colors.dart';
+import 'package:orilla_fresca/helper/icon_helper.dart';
+import 'package:orilla_fresca/widgets/icon_font.dart';
 
 import '../../models/category.dart';
 import '../../helper/utils.dart';
@@ -13,7 +16,29 @@ class CategoryListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Drawer(),
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: AppColors.primary),
+        title: const IconFont(
+          iconName: IconFontHelper.logo,
+          color: AppColors.primary,
+          size: 40,
+        ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.all(10),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/imgs/me.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
