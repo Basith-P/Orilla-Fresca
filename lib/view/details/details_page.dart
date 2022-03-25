@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/widgets/theme_button.dart';
 
 import '../../config/theme/colors.dart';
 import '../../models/sub_category.dart';
 import '../../view/cat_list/widgets/category_icon.dart';
 import '../../widgets/main_app_bar.dart';
+import 'widgets/amount_and_cost_widget.dart';
+import 'widgets/parts_list.dart';
 
 class DetailsPage extends StatefulWidget {
-  DetailsPage(this.subcategory, {Key? key}) : super(key: key);
+  const DetailsPage(this.subcategory, {Key? key}) : super(key: key);
 
   final SubCategoryModel subcategory;
-
-  int amount = 0;
-  double price = 15.0;
-  double cost = 0.0;
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -23,6 +22,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     final subCat = widget.subcategory;
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 241, 241, 244),
       body: Column(
         children: [
           ClipRRect(
@@ -115,147 +115,35 @@ class _DetailsPageState extends State<DetailsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Text(
-                    'Select items',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                SizedBox(
-                  height: 190,
-                  child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: subCat.parts.length,
-                    itemBuilder: (context, i) => GestureDetector(
-                      onTap: () => setState(() {
-                        for (var part in subCat.parts) {
-                          part.isSelected = subCat.parts[i] == part;
-                        }
-                      }),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            height: 140,
-                            width: 130,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: subCat.parts[i].isSelected
-                                  ? Border.all(color: subCat.color, width: 2)
-                                  : null,
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 10,
-                                  offset: Offset.zero,
-                                ),
-                              ],
-                              image: DecorationImage(
-                                image: AssetImage('assets/imgs/${subCat.parts[i].imgName}.png'),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            subCat.parts[i].name,
-                            style: TextStyle(color: subCat.color),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(10.0),
-                  margin: const EdgeInsets.only(left: 40),
-                  child: RichText(
-                    text: const TextSpan(
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      children: [
-                        TextSpan(text: 'Unit: '),
-                        TextSpan(text: 'Libra', style: TextStyle(fontWeight: FontWeight.bold)),
-                        TextSpan(text: ' (max: 20)'),
-                      ],
-                    ),
-                  ),
-                ),
+                PartsList(subCat),
+                AmountAndCost(),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10,
-                        offset: Offset.zero,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      IconButton(
-                        onPressed: () => setState(() {
-                          widget.amount++;
-                          widget.cost = widget.price * widget.amount;
-                        }),
-                        icon: const Icon(
-                          Icons.add_circle_outline_rounded,
-                          size: 40,
-                          color: AppColors.meats,
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          backgroundColor: AppColors.primary,
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                        ),
+                        child: const Text(
+                          'Log in',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                      RichText(
-                        text: TextSpan(
-                          style: const TextStyle(color: Colors.black87),
-                          children: [
-                            TextSpan(
-                                text: '${widget.amount}', style: const TextStyle(fontSize: 40)),
-                            const TextSpan(text: 'kgs', style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
+                      const SizedBox(height: 10),
+                      ThemeButton(
+                        label: 'Product Location',
+                        color: AppColors.darkGreen,
+                        onClick: () {},
                       ),
-                      IconButton(
-                        onPressed: () => setState(() {
-                          if (widget.amount > 0) {
-                            widget.amount--;
-                            widget.cost = widget.price * widget.amount;
-                          }
-                        }),
-                        icon: const Icon(Icons.remove_circle_outline_rounded,
-                            size: 40, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            const TextSpan(text: 'Price: '),
-                            TextSpan(
-                                text: '₹${widget.price}/kg',
-                                style: const TextStyle(fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                      ),
-                      Text('₹${widget.cost}',
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                     ],
                   ),
                 )
