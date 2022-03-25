@@ -26,8 +26,9 @@ class ThemeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => TextButton(
-        onPressed: () {},
+        onPressed: onClick,
         style: TextButton.styleFrom(
+          primary: highlight,
           shape: StadiumBorder(
             side: BorderSide(
               color: borderColor,
@@ -37,13 +38,29 @@ class ThemeButton extends StatelessWidget {
           backgroundColor: color,
           padding: const EdgeInsets.symmetric(vertical: 20),
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: labelColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-        ),
+        child: icon == null
+            ? Text(
+                label,
+                style: TextStyle(
+                  color: labelColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  icon!,
+                  const SizedBox(width: 10),
+                  Text(
+                    label,
+                    style: TextStyle(
+                      color: labelColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
       );
 }

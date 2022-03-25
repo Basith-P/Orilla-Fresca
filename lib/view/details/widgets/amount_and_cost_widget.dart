@@ -14,6 +14,7 @@ class AmountAndCost extends StatefulWidget {
 class _AmountAndCostState extends State<AmountAndCost> {
   @override
   Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             padding: const EdgeInsets.all(10.0),
@@ -26,7 +27,7 @@ class _AmountAndCostState extends State<AmountAndCost> {
                 ),
                 children: [
                   TextSpan(text: 'Unit: '),
-                  TextSpan(text: 'Libra', style: TextStyle(fontWeight: FontWeight.bold)),
+                  TextSpan(text: 'Kilograms', style: TextStyle(fontWeight: FontWeight.bold)),
                   TextSpan(text: ' (max: 20)'),
                 ],
               ),
@@ -40,46 +41,43 @@ class _AmountAndCostState extends State<AmountAndCost> {
               borderRadius: BorderRadius.circular(50),
             ),
             //amount button
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 7),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () => setState(() {
-                      if (widget.amount < 20) {
-                        widget.amount++;
-                        widget.cost = widget.price * widget.amount;
-                      }
-                    }),
-                    child: const Icon(
-                      Icons.add_circle_outline_rounded,
-                      size: 40,
-                      color: AppColors.meats,
-                    ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () => setState(() {
+                    if (widget.amount > 0) {
+                      widget.amount--;
+                      widget.cost = widget.price * widget.amount;
+                    }
+                  }),
+                  child:
+                      const Icon(Icons.remove_circle_outline_rounded, size: 40, color: Colors.grey),
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black87),
+                    children: [
+                      TextSpan(text: '${widget.amount}', style: const TextStyle(fontSize: 40)),
+                      const TextSpan(text: 'kgs', style: TextStyle(fontSize: 20)),
+                    ],
                   ),
-                  RichText(
-                    text: TextSpan(
-                      style: const TextStyle(color: Colors.black87),
-                      children: [
-                        TextSpan(text: '${widget.amount}', style: const TextStyle(fontSize: 40)),
-                        const TextSpan(text: 'kgs', style: TextStyle(fontSize: 20)),
-                      ],
-                    ),
+                ),
+                GestureDetector(
+                  onTap: () => setState(() {
+                    if (widget.amount < 20) {
+                      widget.amount++;
+                      widget.cost = widget.price * widget.amount;
+                    }
+                  }),
+                  child: const Icon(
+                    Icons.add_circle_outline_rounded,
+                    size: 40,
+                    color: AppColors.meats,
                   ),
-                  GestureDetector(
-                    onTap: () => setState(() {
-                      if (widget.amount > 0) {
-                        widget.amount--;
-                        widget.cost = widget.price * widget.amount;
-                      }
-                    }),
-                    child: const Icon(Icons.remove_circle_outline_rounded,
-                        size: 40, color: Colors.grey),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           //price and cost

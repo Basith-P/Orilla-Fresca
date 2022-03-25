@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/widgets/theme_button.dart';
 
 import '../../config/theme/colors.dart';
 import '../../helper/icon_helper.dart';
@@ -64,43 +65,19 @@ class WelcomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 60),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    shape: const StadiumBorder(),
-                    backgroundColor: AppColors.primary,
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                  ),
-                  child: const Text(
-                    'Try Now!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
+                ThemeButton(
+                  label: 'Try Now!',
+                  onClick: () {},
                 ),
                 const SizedBox(height: 20),
-                TextButton(
-                  onPressed: () => Navigator.push(
+                ThemeButton(
+                  label: 'Log in',
+                  onClick: () => Navigator.push(
                       context, MaterialPageRoute(builder: (context) => CategoryListPage())),
-                  style: TextButton.styleFrom(
-                    primary: AppColors.primary,
-                    shape: const StadiumBorder(
-                        side: BorderSide(
-                      color: Color(0xff80c038),
-                      width: 2,
-                    )),
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                  ),
-                  child: const Text(
-                    'Log in',
-                    style: TextStyle(
-                      color: Color(0xff80c038),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
+                  labelColor: AppColors.primary,
+                  color: Colors.transparent,
+                  borderColor: AppColors.primary,
+                  borderWidth: 2,
                 ),
               ],
             ),

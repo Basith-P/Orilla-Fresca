@@ -122,25 +122,21 @@ class _DetailsPageState extends State<DetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          shape: const StadiumBorder(),
-                          backgroundColor: AppColors.primary,
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                      ThemeButton(
+                        label: 'Add to cart',
+                        icon: const Icon(
+                          Icons.shopping_cart_outlined,
+                          color: Colors.white,
                         ),
-                        child: const Text(
-                          'Log in',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
+                        onClick: () {},
                       ),
                       const SizedBox(height: 10),
                       ThemeButton(
                         label: 'Product Location',
+                        icon: const Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.white,
+                        ),
                         color: AppColors.darkGreen,
                         onClick: () {},
                       ),
