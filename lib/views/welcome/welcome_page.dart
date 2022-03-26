@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/services/login_service.dart';
 import 'package:orilla_fresca/widgets/theme_button.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/theme/colors.dart';
 import '../../helper/icon_helper.dart';
@@ -72,8 +74,17 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 20),
                 ThemeButton(
                   label: 'Log in',
-                  onClick: () => Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => CategoryListPage())),
+                  onClick: () async {
+                    final success = await context.read<LoginService>().signInWithGoogle();
+                    if (success) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => CategoryListPage(),
+                        ),
+                      );
+                    }
+                  },
                   labelColor: AppColors.primary,
                   color: Colors.transparent,
                   borderColor: AppColors.primary,
