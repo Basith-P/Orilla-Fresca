@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/views/map/map_page.dart';
 import 'package:orilla_fresca/widgets/theme_button.dart';
 
 import '../../config/theme/colors.dart';
@@ -138,7 +139,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           color: Colors.white,
                         ),
                         color: AppColors.darkGreen,
-                        onClick: () {},
+                        onClick: () => Navigator.push(
+                            context, MaterialPageRoute(builder: (_) => const MapPage())),
                       ),
                     ],
                   ),

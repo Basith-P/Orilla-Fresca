@@ -1,4 +1,3 @@
-string gMapsKey = BuildConfig.GMAPS_API_KEY;
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.orilla_fresca">
@@ -11,7 +10,7 @@ string gMapsKey = BuildConfig.GMAPS_API_KEY;
         android:label="orilla_fresca"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value=gMapsKey/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="API_KEY"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
