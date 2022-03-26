@@ -1,3 +1,5 @@
+import 'package:orilla_fresca/models/onboarding_content.dart';
+
 import '../config/theme/colors.dart';
 import '../models/category.dart';
 import '../models/category_part.dart';
@@ -5,6 +7,23 @@ import '../models/sub_category.dart';
 import 'icon_helper.dart';
 
 class Utils {
+  static List<OnboardingContent> getOnboarding() {
+    return [
+      OnboardingContent(
+        msg: 'Fresh Products.\nFrom the Earth,\nto your table.',
+        img: 'onboard1',
+      ),
+      OnboardingContent(
+        msg: 'Meat and sausages\nfresh and healthy\nfor your delight',
+        img: 'onboard2',
+      ),
+      OnboardingContent(
+        msg: 'Get them from\nthe comfort of your\ndmobile device',
+        img: 'onboard3',
+      ),
+    ];
+  }
+
   static List<CategoryModel> getMockedCategories() {
     return [
       CategoryModel(

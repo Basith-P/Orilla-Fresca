@@ -3,7 +3,7 @@ import 'package:orilla_fresca/widgets/theme_button.dart';
 
 import '../../config/theme/colors.dart';
 import '../../models/sub_category.dart';
-import '../../view/cat_list/widgets/category_icon.dart';
+import '../../views/cat_list/widgets/category_icon.dart';
 import '../../widgets/main_app_bar.dart';
 import 'widgets/amount_and_cost_widget.dart';
 import 'widgets/parts_list.dart';

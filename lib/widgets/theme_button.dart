@@ -36,7 +36,7 @@ class ThemeButton extends StatelessWidget {
             ),
           ),
           backgroundColor: color,
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
         ),
         child: icon == null
             ? Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../config/theme/colors.dart';
-import '../../view/selected_category/selected_category_page.dart';
+import '../../views/selected_category/selected_category_page.dart';
 import '../../widgets/main_app_bar.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'view/splash/splash_page.dart';
-import 'view/welcome/welcome_page.dart';
+import 'views/splash/splash_page.dart';
+import 'views/onboarding/onboarding_page.dart';
 
 void main() {
   runApp(const OrillaFrescaApp());
@@ -17,7 +17,7 @@ class OrillaFrescaApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Raleway'),
       debugShowCheckedModeBanner: false,
       home: const SplashPage(
-        goToPage: WelcomePage(),
+        goToPage: OnboardingPage(),
         duration: 3,
       ),
     );
