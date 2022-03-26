@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "877751937064",
+    "project_id": "orilla-firsca",
+    "storage_bucket": "orilla-firsca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877751937064:android:d1197e31a054f683342d1d",
+        "android_client_info": {
+          "package_name": "com.bns.orilla_fresca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877751937064-lbinblk57orffhbt17k4fro981nguuhv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bns.orilla_fresca",
+            "certificate_hash": "13060a39f4b0b72e0793a9a7bc78de6c4df40f02"
+          }
+        },
+        {
+          "client_id": "877751937064-cuvpra4gq8c47iomg9nkf16h6ld874oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlnfBw_Eq4TspNlFPGehbgwPpO85_0GjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877751937064-cuvpra4gq8c47iomg9nkf16h6ld874oa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
