@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../config/routes.dart' as routes;
 import 'package:orilla_fresca/config/theme/colors.dart';
 import 'package:orilla_fresca/helper/icon_helper.dart';
 import 'package:orilla_fresca/views/welcome/welcome_page.dart';
@@ -84,10 +86,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           child: ThemeButton(
                             label: 'Enter now!',
                             color: AppColors.darkGreen,
-                            onClick: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const WelcomePage()),
-                            ),
+                            onClick: () => Navigator.pushNamed(context, routes.welcomePage),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -129,10 +128,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               padding: const EdgeInsets.all(20.0),
               child: ThemeButton(
                 label: 'Get onboarded',
-                onClick: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const WelcomePage()),
-                ),
+                onClick: () => Navigator.pushNamed(context, routes.welcomePage),
               ),
             ),
           ],

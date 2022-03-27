@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca/views/map/map_page.dart';
-import 'package:orilla_fresca/widgets/theme_button.dart';
+import 'package:provider/provider.dart';
 
-import '../../config/theme/colors.dart';
-import '../../models/sub_category.dart';
-import '../../views/cat_list/widgets/category_icon.dart';
-import '../../widgets/main_app_bar.dart';
 import 'widgets/amount_and_cost_widget.dart';
 import 'widgets/parts_list.dart';
+import '../../config/theme/colors.dart';
+import '../../services/category_selection_service.dart';
+import '../../views/map/map_page.dart';
+import '../../views/cat_list/widgets/category_icon.dart';
+import '../../widgets/theme_button.dart';
+import '../../widgets/main_app_bar.dart';
 
-class DetailsPage extends StatefulWidget {
-  const DetailsPage(this.subcategory, {Key? key}) : super(key: key);
+class DetailsPage extends StatelessWidget {
+  const DetailsPage({Key? key}) : super(key: key);
 
-  final SubCategoryModel subcategory;
-
-  @override
-  State<DetailsPage> createState() => _DetailsPageState();
-}
-
-class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
-    final subCat = widget.subcategory;
+    final subCat = context.read<CategorySelectionService>().selectedSubCategory;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 241, 241, 244),
       body: Column(

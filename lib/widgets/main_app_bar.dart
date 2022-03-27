@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca/widgets/user_profile_header.dart';
 
+import 'user_profile_header.dart';
+import '../config/routes.dart' as routes;
 import '../config/theme/colors.dart';
 import '../helper/icon_helper.dart';
 import 'icon_font.dart';
@@ -30,10 +31,14 @@ class _MainAppBarState extends State<MainAppBar> {
       backgroundColor: Colors.transparent,
       centerTitle: true,
       iconTheme: IconThemeData(color: widget.themeColor),
-      title: IconFont(
-        iconName: IconFontHelper.logo,
-        color: widget.themeColor,
-        size: 40,
+      title: GestureDetector(
+        onTap: () =>
+            Navigator.pushNamedAndRemoveUntil(context, routes.catListPage, (route) => false),
+        child: IconFont(
+          iconName: IconFontHelper.logo,
+          color: widget.themeColor,
+          size: 40,
+        ),
       ),
       actions: [
         UserProfileHeader(

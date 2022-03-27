@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/services/category_selection_service.dart';
+import 'package:provider/provider.dart';
 
+import '../../config/routes.dart' as routes;
 import '../../config/theme/colors.dart';
-import '../../views/selected_category/selected_category_page.dart';
 import '../../widgets/main_app_bar.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';
@@ -35,10 +37,10 @@ class CategoryListPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int i) {
                 return CategoryCard(
                   category: _categories[i],
-                  onClick: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SelectecCategoryPage(_categories[i]))),
+                  onClick: () {
+                    context.read<CategorySelectionService>().selectedCategory = _categories[i];
+                    Navigator.pushNamed(context, routes.selectedCategoryPage);
+                  },
                 );
               },
             ),

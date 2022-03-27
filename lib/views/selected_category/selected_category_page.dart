@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca/widgets/main_app_bar.dart';
+import 'package:provider/provider.dart';
 
-import '../../models/category.dart';
+import '../../services/category_selection_service.dart';
+import '../../widgets/main_app_bar.dart';
+import '../../config/routes.dart' as routes;
 import '../cat_list/widgets/category_icon.dart';
-import '../details/details_page.dart';
 
 class SelectecCategoryPage extends StatelessWidget {
-  const SelectecCategoryPage(this.selectedCategory, {Key? key}) : super(key: key);
-
-  final CategoryModel selectedCategory;
+  const SelectecCategoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final categoryProvR = context.read<CategorySelectionService>();
+    final selectedCategory = categoryProvR.selectedCategory;
     return Scaffold(
       appBar: const MainAppBar(),
       body: Column(
@@ -41,8 +42,10 @@ class SelectecCategoryPage extends StatelessWidget {
                 (index) {
                   final subcategory = selectedCategory.subCategories![index];
                   return GestureDetector(
-                    onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => DetailsPage(subcategory))),
+                    onTap: () {
+                      categoryProvR.selectedSubCategory = subcategory;
+                      Navigator.pushNamed(context, routes.detailsPage);
+                    },
                     child: Column(
                       children: [
                         ClipRRect(
