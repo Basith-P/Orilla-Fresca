@@ -18,4 +18,18 @@ class CategorySelectionService with ChangeNotifier {
     _selectedSubCategory = value;
     notifyListeners();
   }
+
+  void incrementSubCatAmount() {
+    _selectedSubCategory.amount++;
+    notifyListeners();
+  }
+
+  void decrementSubCatAmount() {
+    _selectedSubCategory.amount--;
+    notifyListeners();
+  }
+
+  int get subCatAmount {
+    return _selectedSubCategory.amount;
+  }
 }

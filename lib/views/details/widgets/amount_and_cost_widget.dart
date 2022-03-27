@@ -20,9 +20,9 @@ class AmountAndCost extends StatefulWidget {
 class _AmountAndCostState extends State<AmountAndCost> {
   @override
   Widget build(BuildContext context) {
-    SubCategoryModel subCategory = context.watch<CategorySelectionService>().selectedSubCategory;
+    final catSelection = context.watch<CategorySelectionService>();
+    SubCategoryModel subCategory = catSelection.selectedSubCategory;
     final themeColor = subCategory.color;
-    int amount = subCategory.amount;
     double price = subCategory.price;
     // final quantity = subCategory.quantity;
 
@@ -60,15 +60,14 @@ class _AmountAndCostState extends State<AmountAndCost> {
             children: [
               GestureDetector(
                 onTap: () {
-                  if (amount > minValue) {
-                    amount--;
-                    subCategory = subCategory;
-                  }
+                  if (catSelection.subCatAmount > minValue) catSelection.decrementSubCatAmount();
                 },
                 child: Icon(
                   Icons.remove_circle_outline_rounded,
                   size: 40,
-                  color: amount > minValue ? Colors.grey : Colors.grey.withOpacity(.2),
+                  color: catSelection.subCatAmount > minValue
+                      ? Colors.grey
+                      : Colors.grey.withOpacity(.2),
                 ),
               ),
               Consumer<CategorySelectionService>(
@@ -77,7 +76,7 @@ class _AmountAndCostState extends State<AmountAndCost> {
                     style: const TextStyle(color: Colors.black87),
                     children: [
                       TextSpan(
-                          text: '${catSelection.selectedSubCategory.amount}',
+                          text: '${catSelection.subCatAmount}',
                           style: const TextStyle(fontSize: 40)),
                       const TextSpan(text: 'kgs', style: TextStyle(fontSize: 20)),
                     ],
@@ -86,15 +85,14 @@ class _AmountAndCostState extends State<AmountAndCost> {
               ),
               GestureDetector(
                 onTap: () {
-                  if (amount < maxValue) {
-                    amount++;
-                    subCategory = subCategory;
-                  }
+                  if (catSelection.subCatAmount < maxValue) catSelection.incrementSubCatAmount();
                 },
                 child: Icon(
                   Icons.add_circle_outline_rounded,
                   size: 40,
-                  color: amount < maxValue ? themeColor : themeColor.withOpacity(.2),
+                  color: catSelection.subCatAmount < maxValue
+                      ? themeColor
+                      : themeColor.withOpacity(.2),
                 ),
               ),
             ],

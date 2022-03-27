@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../views/cat_list/widgets/left_drawer.dart';
 import '../../config/routes.dart' as routes;
-import '../../config/theme/colors.dart';
 import '../../widgets/main_app_bar.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';
@@ -51,7 +50,7 @@ class CategoryListPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: CategoryBottomNavBar(),
+      bottomNavigationBar: const CategoryBottomNavBar(),
     );
   }
 }
