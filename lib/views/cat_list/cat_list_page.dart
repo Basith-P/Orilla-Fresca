@@ -8,6 +8,7 @@ import '../../config/theme/colors.dart';
 import '../../widgets/main_app_bar.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';
+import 'widgets/cat_bottom_nav.dart';
 import 'widgets/category_card.dart';
 
 class CategoryListPage extends StatelessWidget {
@@ -50,34 +51,7 @@ class CategoryListPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.primary,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_outline_rounded),
-            activeIcon: Icon(Icons.favorite_rounded),
-            label: 'favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            activeIcon: Icon(Icons.shopping_cart_rounded),
-            label: 'cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop_outlined),
-            activeIcon: Icon(Icons.pin_drop_rounded),
-            label: 'location',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            activeIcon: Icon(Icons.settings_rounded),
-            label: 'settings',
-          ),
-        ],
-      ),
+      bottomNavigationBar: CategoryBottomNavBar(),
     );
   }
 }

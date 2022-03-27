@@ -5,6 +5,8 @@ import 'category.dart';
 
 class SubCategoryModel extends CategoryModel {
   List<CategoryPart> parts;
+  double price;
+  int amount;
 
   SubCategoryModel({
     required String name,
@@ -12,6 +14,8 @@ class SubCategoryModel extends CategoryModel {
     required Color color,
     required String imgName,
     required this.parts,
+    required this.price,
+    this.amount = 0,
   }) : super(
           name: name,
           icon: icon,

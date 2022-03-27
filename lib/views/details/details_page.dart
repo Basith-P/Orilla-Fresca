@@ -46,9 +46,9 @@ class DetailsPage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const Text(
-                            'Pork Meat',
-                            style: TextStyle(
+                          Text(
+                            subCat.name,
+                            style: const TextStyle(
                               fontSize: 20,
                               color: Colors.white,
                             ),
@@ -116,7 +116,7 @@ class DetailsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                PartsList(subCat),
+                subCat.parts.isNotEmpty ? PartsList(subCat) : const SizedBox(height: 20),
                 AmountAndCost(),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),

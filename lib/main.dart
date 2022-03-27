@@ -23,7 +23,7 @@ class OrillaFrescaApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider(create: (_) => LoginService()),
-        Provider(create: (_) => CategorySelectionService()),
+        ChangeNotifierProvider(create: (_) => CategorySelectionService()),
         ChangeNotifierProvider(create: (_) => CartService()),
       ],
       child: MaterialApp(

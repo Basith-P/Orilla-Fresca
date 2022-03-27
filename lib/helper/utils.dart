@@ -34,6 +34,7 @@ class Utils {
         subCategories: [
           SubCategoryModel(
             color: AppColors.meats,
+            price: 375,
             name: "Cerdo",
             imgName: "cat1_1",
             icon: IconFontHelper.meats,
@@ -51,6 +52,7 @@ class Utils {
             imgName: "cat1_2",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            price: 375,
             parts: [
               CategoryPart(name: 'Costilla', imgName: 'cat1_3_p1', isSelected: false),
               CategoryPart(name: 'Ribeye', imgName: 'cat1_3_p2', isSelected: false),
@@ -63,6 +65,7 @@ class Utils {
             imgName: "cat1_3",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            price: 375,
             parts: [
               CategoryPart(name: 'Alitas', imgName: 'cat1_2_p1', isSelected: false),
               CategoryPart(name: 'Pechuga', imgName: 'cat1_2_p2', isSelected: false),
@@ -76,6 +79,7 @@ class Utils {
             imgName: "cat1_4",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            price: 375,
             parts: [
               CategoryPart(name: 'Pechuga', imgName: 'cat1_4_p1', isSelected: false),
               CategoryPart(name: 'Muslo', imgName: 'cat1_4_p2', isSelected: false),
@@ -87,6 +91,7 @@ class Utils {
             imgName: "cat1_5",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            price: 375,
             parts: [
               CategoryPart(name: 'Chuletas', imgName: 'cat1_5_p1', isSelected: false),
               CategoryPart(name: 'Lomo', imgName: 'cat1_5_p2', isSelected: false),
@@ -98,6 +103,7 @@ class Utils {
             imgName: "cat1_6",
             icon: IconFontHelper.meats,
             color: AppColors.meats,
+            price: 375,
             parts: [
               CategoryPart(name: 'Lomo', imgName: 'cat1_6_p1', isSelected: false),
               CategoryPart(name: 'Pierna', imgName: 'cat1_6_p2', isSelected: false)
@@ -116,6 +122,7 @@ class Utils {
             name: "Kiwi",
             imgName: "cat2_1",
             icon: IconFontHelper.fruits,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -123,6 +130,7 @@ class Utils {
             name: "Banana",
             imgName: "cat2_2",
             icon: IconFontHelper.fruits,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -130,6 +138,7 @@ class Utils {
             name: "Toronja",
             imgName: "cat2_3",
             icon: IconFontHelper.fruits,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -137,6 +146,7 @@ class Utils {
             name: "Naranja",
             imgName: "cat2_4",
             icon: IconFontHelper.fruits,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -144,6 +154,7 @@ class Utils {
             name: "Aguacate",
             imgName: "cat2_5",
             icon: IconFontHelper.fruits,
+            price: 375,
             parts: [],
           )
         ],
@@ -159,6 +170,7 @@ class Utils {
             name: "Pimiento Rojo",
             imgName: "cat3_1",
             icon: IconFontHelper.vegs,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -166,6 +178,7 @@ class Utils {
             name: "Zanahoria",
             imgName: "cat3_2",
             icon: IconFontHelper.vegs,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -173,6 +186,7 @@ class Utils {
             name: "Espárrago",
             imgName: "cat3_3",
             icon: IconFontHelper.vegs,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -180,6 +194,7 @@ class Utils {
             name: "Cebolla",
             imgName: "cat3_4",
             icon: IconFontHelper.vegs,
+            price: 375,
             parts: [],
           )
         ],
@@ -195,6 +210,7 @@ class Utils {
             name: "Cajuil",
             imgName: "cat4_1",
             icon: IconFontHelper.seeds,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -202,6 +218,7 @@ class Utils {
             name: "Maní",
             imgName: "cat4_2",
             icon: IconFontHelper.seeds,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -209,6 +226,7 @@ class Utils {
             name: "Almendra",
             imgName: "cat4_3",
             icon: IconFontHelper.seeds,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -216,6 +234,7 @@ class Utils {
             name: "Pistacho",
             imgName: "cat4_4",
             icon: IconFontHelper.seeds,
+            price: 375,
             parts: [],
           )
         ],
@@ -231,6 +250,7 @@ class Utils {
             name: "Dulce de Leche",
             imgName: "cat5_1",
             icon: IconFontHelper.pastries,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -238,6 +258,7 @@ class Utils {
             name: "Dulce de Naranja",
             imgName: "cat5_2",
             icon: IconFontHelper.pastries,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -245,6 +266,7 @@ class Utils {
             name: "Dulce de Guayaba",
             imgName: "cat5_3",
             icon: IconFontHelper.pastries,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -252,6 +274,7 @@ class Utils {
             name: "Dulce de Coco",
             imgName: "cat5_4",
             icon: IconFontHelper.pastries,
+            price: 375,
             parts: [],
           )
         ],
@@ -267,6 +290,7 @@ class Utils {
             name: "Orégano",
             imgName: "cat6_1",
             icon: IconFontHelper.spices,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -274,6 +298,7 @@ class Utils {
             name: "Bija",
             imgName: "cat6_2",
             icon: IconFontHelper.spices,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -281,6 +306,7 @@ class Utils {
             name: "Pimienta",
             imgName: "cat6_3",
             icon: IconFontHelper.spices,
+            price: 375,
             parts: [],
           ),
           SubCategoryModel(
@@ -288,6 +314,7 @@ class Utils {
             name: "Canela",
             imgName: "cat6_4",
             icon: IconFontHelper.spices,
+            price: 375,
             parts: [],
           )
         ],
