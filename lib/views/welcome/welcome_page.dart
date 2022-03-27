@@ -7,7 +7,6 @@ import '../../widgets/theme_button.dart';
 import '../../config/theme/colors.dart';
 import '../../helper/icon_helper.dart';
 import '../../widgets/icon_font.dart';
-import '../cat_list/cat_list_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -69,8 +68,8 @@ class WelcomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 60),
                 ThemeButton(
-                  label: 'Try Now!',
-                  onClick: () {},
+                  label: 'Take a look',
+                  onClick: () => Navigator.pushReplacementNamed(context, routes.catListPage),
                 ),
                 const SizedBox(height: 20),
                 ThemeButton(

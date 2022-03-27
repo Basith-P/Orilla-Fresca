@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../config/routes.dart' as routes;
 import 'package:orilla_fresca/config/theme/colors.dart';
 import 'package:orilla_fresca/helper/icon_helper.dart';
-import 'package:orilla_fresca/views/welcome/welcome_page.dart';
 import 'package:orilla_fresca/widgets/icon_font.dart';
 
 import '../../models/onboarding_content.dart';

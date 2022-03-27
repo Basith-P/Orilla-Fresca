@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:orilla_fresca/models/user_model.dart';
 
 class LoginService {
-  late UserModel? _userModel;
+  UserModel? _userModel;
 
   UserModel? get loggedInUser => _userModel;
 
@@ -36,7 +36,7 @@ class LoginService {
   }
 
   //signOut
-  Future<void> signOut() async {
+  Future<void> logOut() async {
     await GoogleSignIn().signOut();
     _userModel = null;
   }
