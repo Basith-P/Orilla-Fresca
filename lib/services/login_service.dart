@@ -1,7 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:orilla_fresca/models/user_model.dart';
 
 class LoginService {
+  late UserModel? _userModel;
+
+  UserModel? get loggedInUser => _userModel;
+
   Future<bool> signInWithGoogle() async {
     //Trigger auth workflow
     GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -22,11 +27,17 @@ class LoginService {
 
     //Once signed in , return the user credentials
     UserCredential userCreds = await FirebaseAuth.instance.signInWithCredential(credential);
-    if (userCreds != null) {
-      //Collect userinfo
-
-    }
-
+    _userModel = UserModel(
+      displayName: userCreds.user!.displayName!,
+      email: userCreds.user!.email!,
+      photoUrl: userCreds.user!.photoURL!,
+    );
     return true;
+  }
+
+  //signOut
+  Future<void> signOut() async {
+    await GoogleSignIn().signOut();
+    _userModel = null;
   }
 }

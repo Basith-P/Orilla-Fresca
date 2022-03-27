@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/widgets/user_profile_header.dart';
 
 import '../config/theme/colors.dart';
 import '../helper/icon_helper.dart';
@@ -7,10 +8,12 @@ import 'icon_font.dart';
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   const MainAppBar({
     this.themeColor = AppColors.primary,
+    this.showProfilePic = true,
     Key? key,
   }) : super(key: key);
 
   final Color themeColor;
+  final bool showProfilePic;
 
   @override
   State<MainAppBar> createState() => _MainAppBarState();
@@ -33,16 +36,9 @@ class _MainAppBarState extends State<MainAppBar> {
         size: 40,
       ),
       actions: [
-        Container(
-          margin: const EdgeInsets.only(right: 10),
-          padding: const EdgeInsets.all(10),
-          child: ClipOval(
-            child: Image.asset(
-              'assets/imgs/basith.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+        UserProfileHeader(
+          showProfilePic: widget.showProfilePic,
+        )
       ],
     );
   }
