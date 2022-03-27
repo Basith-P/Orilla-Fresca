@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orilla_fresca/services/category_selection_service.dart';
 import 'package:provider/provider.dart';
 
+import '../../views/cat_list/widgets/left_drawer.dart';
 import '../../config/routes.dart' as routes;
 import '../../config/theme/colors.dart';
 import '../../widgets/main_app_bar.dart';
@@ -17,7 +18,9 @@ class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const Drawer(
+        child: LeftDrawer(),
+      ),
       appBar: const MainAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
