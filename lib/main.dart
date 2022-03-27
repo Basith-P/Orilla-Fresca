@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:orilla_fresca/views/welcome/welcome_page.dart';
 import 'package:provider/provider.dart';
 
+import 'config/routes.dart' as routes;
 import 'services/login_service.dart';
 import 'views/splash/splash_page.dart';
 import 'views/onboarding/onboarding_page.dart';
@@ -23,10 +25,13 @@ class OrillaFrescaApp extends StatelessWidget {
         title: 'Orilla Fresca',
         theme: ThemeData(fontFamily: 'Raleway'),
         debugShowCheckedModeBanner: false,
-        home: const SplashPage(
-          goToPage: OnboardingPage(),
-          duration: 3,
-        ),
+        onGenerateRoute: routes.generateRoute,
+        onGenerateInitialRoutes: (String initialRouteName) => [
+          routes.generateRoute(
+            const RouteSettings(name: routes.splashPage, arguments: WelcomePage()),
+          ),
+        ],
+        initialRoute: routes.splashPage,
       ),
     );
   }

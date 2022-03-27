@@ -14,21 +14,17 @@ class UserProfileHeader extends StatelessWidget {
     UserModel? user = context.read<LoginService>().loggedInUser;
     String imgPath = user != null ? user.photoUrl : '';
 
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.all(10),
-      child: ClipOval(
-        child: showProfilePic && imgPath.isNotEmpty
-            ? Image.network(
+    return showProfilePic && imgPath.isNotEmpty
+        ? Container(
+            margin: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.all(10),
+            child: ClipOval(
+              child: Image.network(
                 imgPath,
                 fit: BoxFit.cover,
-              )
-            : const Icon(
-                Icons.person_outline_rounded,
-                size: 40,
-                color: Colors.grey,
               ),
-      ),
-    );
+            ),
+          )
+        : Container();
   }
 }

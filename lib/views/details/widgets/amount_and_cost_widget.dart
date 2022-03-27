@@ -7,6 +7,8 @@ class AmountAndCost extends StatefulWidget {
   double price = 15.0;
   double cost = 0.0;
 
+  AmountAndCost({Key? key}) : super(key: key);
+
   @override
   State<AmountAndCost> createState() => _AmountAndCostState();
 }
