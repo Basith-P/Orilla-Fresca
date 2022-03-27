@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../cart/cart_item_model.dart';
 import 'widgets/amount_and_cost_widget.dart';
 import 'widgets/parts_list.dart';
 import '../../config/theme/colors.dart';
 import '../../services/category_selection_service.dart';
+import '../../cart/cart_service.dart';
 import '../../views/map/map_page.dart';
 import '../../views/cat_list/widgets/category_icon.dart';
 import '../../widgets/theme_button.dart';
@@ -53,7 +55,7 @@ class DetailsPage extends StatelessWidget {
                           ),
                           Chip(
                             label: const Text(
-                              '\$200/kg',
+                              'Rs.375/kg',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -76,17 +78,21 @@ class DetailsPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
-                      children: const [
-                        Text(
-                          '3',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                      children: [
+                        Consumer<CartService>(
+                          builder: (context, cart, child) {
+                            return Text(
+                              '${cart.cartItems.length}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            );
+                          },
                         ),
-                        SizedBox(width: 5),
-                        Icon(
+                        const SizedBox(width: 5),
+                        const Icon(
                           Icons.shopping_cart_outlined,
                           color: Colors.white,
                           size: 16,
@@ -117,13 +123,47 @@ class DetailsPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ThemeButton(
-                        label: 'Add to cart',
-                        icon: const Icon(
-                          Icons.shopping_cart_outlined,
-                          color: Colors.white,
-                        ),
-                        onClick: () {},
+                      Consumer<CartService>(
+                        builder: (context, cart, child) {
+                          Widget renderedButton;
+
+                          if (!cart.isSubCatAddedToCart(subCat)) {
+                            renderedButton = ThemeButton(
+                              label: 'Add to cart',
+                              icon: const Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.white,
+                              ),
+                              onClick: () => context.read<CartService>().addCartItem(
+                                    CartItem(category: subCat),
+                                  ),
+                            );
+                          } else {
+                            renderedButton = Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    'Added to cart',
+                                    style: TextStyle(
+                                      color: AppColors.darkGreen,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Icon(
+                                    Icons.check_circle_outline_rounded,
+                                    color: AppColors.darkGreen,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+
+                          return renderedButton;
+                        },
                       ),
                       const SizedBox(height: 10),
                       ThemeButton(

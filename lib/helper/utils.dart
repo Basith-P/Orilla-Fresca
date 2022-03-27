@@ -110,35 +110,188 @@ class Utils {
         name: "Frutas",
         imgName: "cat2",
         icon: IconFontHelper.fruits,
-        subCategories: [],
+        subCategories: [
+          SubCategoryModel(
+            color: AppColors.fruits,
+            name: "Kiwi",
+            imgName: "cat2_1",
+            icon: IconFontHelper.fruits,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.fruits,
+            name: "Banana",
+            imgName: "cat2_2",
+            icon: IconFontHelper.fruits,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.fruits,
+            name: "Toronja",
+            imgName: "cat2_3",
+            icon: IconFontHelper.fruits,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.fruits,
+            name: "Naranja",
+            imgName: "cat2_4",
+            icon: IconFontHelper.fruits,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.fruits,
+            name: "Aguacate",
+            imgName: "cat2_5",
+            icon: IconFontHelper.fruits,
+            parts: [],
+          )
+        ],
       ),
       CategoryModel(
         color: AppColors.vegs,
         name: "Vegetales",
         imgName: "cat3",
         icon: IconFontHelper.vegs,
-        subCategories: [],
+        subCategories: [
+          SubCategoryModel(
+            color: AppColors.vegs,
+            name: "Pimiento Rojo",
+            imgName: "cat3_1",
+            icon: IconFontHelper.vegs,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.vegs,
+            name: "Zanahoria",
+            imgName: "cat3_2",
+            icon: IconFontHelper.vegs,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.vegs,
+            name: "Espárrago",
+            imgName: "cat3_3",
+            icon: IconFontHelper.vegs,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.vegs,
+            name: "Cebolla",
+            imgName: "cat3_4",
+            icon: IconFontHelper.vegs,
+            parts: [],
+          )
+        ],
       ),
       CategoryModel(
         color: AppColors.seeds,
         name: "Semillas",
         imgName: "cat4",
         icon: IconFontHelper.seeds,
-        subCategories: [],
+        subCategories: [
+          SubCategoryModel(
+            color: AppColors.seeds,
+            name: "Cajuil",
+            imgName: "cat4_1",
+            icon: IconFontHelper.seeds,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.seeds,
+            name: "Maní",
+            imgName: "cat4_2",
+            icon: IconFontHelper.seeds,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.seeds,
+            name: "Almendra",
+            imgName: "cat4_3",
+            icon: IconFontHelper.seeds,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.seeds,
+            name: "Pistacho",
+            imgName: "cat4_4",
+            icon: IconFontHelper.seeds,
+            parts: [],
+          )
+        ],
       ),
       CategoryModel(
         color: AppColors.pastries,
         name: "Dulces",
         imgName: "cat5",
         icon: IconFontHelper.pastries,
-        subCategories: [],
+        subCategories: [
+          SubCategoryModel(
+            color: AppColors.pastries,
+            name: "Dulce de Leche",
+            imgName: "cat5_1",
+            icon: IconFontHelper.pastries,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.pastries,
+            name: "Dulce de Naranja",
+            imgName: "cat5_2",
+            icon: IconFontHelper.pastries,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.pastries,
+            name: "Dulce de Guayaba",
+            imgName: "cat5_3",
+            icon: IconFontHelper.pastries,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.pastries,
+            name: "Dulce de Coco",
+            imgName: "cat5_4",
+            icon: IconFontHelper.pastries,
+            parts: [],
+          )
+        ],
       ),
       CategoryModel(
-          color: AppColors.spices,
-          name: "Especies",
-          imgName: "cat6",
-          icon: IconFontHelper.spices,
-          subCategories: [])
+        color: AppColors.spices,
+        name: "Especies",
+        imgName: "cat6",
+        icon: IconFontHelper.spices,
+        subCategories: [
+          SubCategoryModel(
+            color: AppColors.spices,
+            name: "Orégano",
+            imgName: "cat6_1",
+            icon: IconFontHelper.spices,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.spices,
+            name: "Bija",
+            imgName: "cat6_2",
+            icon: IconFontHelper.spices,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.spices,
+            name: "Pimienta",
+            imgName: "cat6_3",
+            icon: IconFontHelper.spices,
+            parts: [],
+          ),
+          SubCategoryModel(
+            color: AppColors.spices,
+            name: "Canela",
+            imgName: "cat6_4",
+            icon: IconFontHelper.spices,
+            parts: [],
+          )
+        ],
+      )
     ];
   }
 }
