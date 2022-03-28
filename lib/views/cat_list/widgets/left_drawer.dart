@@ -5,6 +5,7 @@ import '../../../config/routes.dart' as routes;
 import 'package:orilla_fresca/config/theme/colors.dart';
 import 'package:orilla_fresca/widgets/icon_font.dart';
 import '../../../helper/icon_helper.dart';
+import '../../../helper/utils.dart';
 import '../../../services/login_service.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -26,8 +27,8 @@ class LeftDrawer extends StatelessWidget {
                 onPressed: () async {
                   if (isLoggedIn) {
                     await context.read<LoginService>().logOut();
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, routes.welcomePage, (route) => false);
+                    Utils.mainAppNav.currentState!
+                        .pushNamedAndRemoveUntil(routes.welcomePage, (route) => false);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Logged out'),
@@ -35,8 +36,8 @@ class LeftDrawer extends StatelessWidget {
                     );
                   } else {
                     await context.read<LoginService>().signInWithGoogle();
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, routes.catListPage, (route) => false);
+                    Utils.mainAppNav.currentState!
+                        .pushNamedAndRemoveUntil(routes.catListPage, (route) => false);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Signed in successfully'),

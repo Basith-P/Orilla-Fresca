@@ -33,7 +33,7 @@ class CategoryListPage extends StatelessWidget {
                 category: _categories[i],
                 onClick: () {
                   context.read<CategorySelectionService>().selectedCategory = _categories[i];
-                  Navigator.pushNamed(context, routes.selectedCategoryPage);
+                  Utils.mainAppNav.currentState!.pushNamed(routes.selectedCategoryPage);
                 },
               );
             },

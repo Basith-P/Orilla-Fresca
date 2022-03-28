@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/routes.dart' as routes;
+import '../../helper/utils.dart';
 import '../../services/login_service.dart';
 import '../../widgets/theme_button.dart';
 import '../../config/theme/colors.dart';
@@ -69,7 +70,8 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 60),
                 ThemeButton(
                   label: 'Take a look',
-                  onClick: () => Navigator.pushReplacementNamed(context, routes.homePage),
+                  onClick: () =>
+                      Utils.mainAppNav.currentState!.pushReplacementNamed(routes.homePage),
                 ),
                 const SizedBox(height: 20),
                 ThemeButton(
@@ -77,7 +79,7 @@ class WelcomePage extends StatelessWidget {
                   onClick: () async {
                     final success = await context.read<LoginService>().signInWithGoogle();
                     if (success) {
-                      Navigator.pushNamed(context, routes.homePage);
+                      Utils.mainAppNav.currentState!.pushNamed(routes.homePage);
                     }
                   },
                   labelColor: AppColors.primary,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../helper/utils.dart';
 import '../../services/category_selection_service.dart';
 import '../../widgets/main_app_bar.dart';
 import '../../config/routes.dart' as routes;
@@ -44,7 +45,7 @@ class SelectecCategoryPage extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       categoryProvR.selectedSubCategory = subcategory;
-                      Navigator.pushNamed(context, routes.detailsPage);
+                      Utils.mainAppNav.currentState!.pushNamed(routes.detailsPage);
                     },
                     child: Column(
                       children: [

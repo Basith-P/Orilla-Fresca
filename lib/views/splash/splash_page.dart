@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../config/theme/colors.dart';
 import '../../helper/icon_helper.dart';
+import '../../helper/utils.dart';
 import '../../widgets/icon_font.dart';
 
 class SplashPage extends StatelessWidget {
@@ -17,8 +18,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: duration), () {
-      Navigator.pushReplacement(
-        context,
+      Utils.mainAppNav.currentState!.pushReplacement(
         MaterialPageRoute(builder: (context) => goToPage),
       );
     });

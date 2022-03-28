@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../helper/utils.dart';
 import 'user_profile_header.dart';
 import '../config/routes.dart' as routes;
 import '../config/theme/colors.dart';
@@ -32,8 +33,8 @@ class _MainAppBarState extends State<MainAppBar> {
       centerTitle: true,
       iconTheme: IconThemeData(color: widget.themeColor),
       title: GestureDetector(
-        onTap: () =>
-            Navigator.pushNamedAndRemoveUntil(context, routes.catListPage, (route) => false),
+        onTap: () => Utils.mainAppNav.currentState!
+            .pushNamedAndRemoveUntil(routes.catListPage, (route) => false),
         child: IconFont(
           iconName: IconFontHelper.logo,
           color: widget.themeColor,

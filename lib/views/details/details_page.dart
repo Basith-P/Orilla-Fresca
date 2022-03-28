@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../cart/cart_item_model.dart';
+import '../../helper/utils.dart';
 import 'widgets/amount_and_cost_widget.dart';
 import 'widgets/parts_list.dart';
 import '../../config/theme/colors.dart';
@@ -173,8 +174,8 @@ class DetailsPage extends StatelessWidget {
                           color: Colors.white,
                         ),
                         color: AppColors.darkGreen,
-                        onClick: () => Navigator.push(
-                            context, MaterialPageRoute(builder: (_) => const MapPage())),
+                        onClick: () => Utils.mainAppNav.currentState!
+                            .push(MaterialPageRoute(builder: (_) => const MapPage())),
                       ),
                     ],
                   ),

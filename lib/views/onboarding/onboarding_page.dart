@@ -85,7 +85,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           child: ThemeButton(
                             label: 'Enter now!',
                             color: AppColors.darkGreen,
-                            onClick: () => Navigator.pushNamed(context, routes.welcomePage),
+                            onClick: () =>
+                                Utils.mainAppNav.currentState!.pushNamed(routes.welcomePage),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -127,7 +128,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               padding: const EdgeInsets.all(20.0),
               child: ThemeButton(
                 label: 'Get onboarded',
-                onClick: () => Navigator.pushNamed(context, routes.welcomePage),
+                onClick: () => Utils.mainAppNav.currentState!.pushNamed(routes.welcomePage),
               ),
             ),
           ],
