@@ -14,6 +14,16 @@ class CartService with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeCartItem(CartItem item) {
+    _cartItems.remove(item);
+    notifyListeners();
+  }
+
+  void clearCart() {
+    _cartItems.clear();
+    notifyListeners();
+  }
+
   bool isSubCatAddedToCart(SubCategoryModel item) {
     return _cartItems.isNotEmpty
         ? _cartItems.any((element) => element.category.name == item.name)

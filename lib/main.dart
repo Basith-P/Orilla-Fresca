@@ -8,7 +8,7 @@ import 'config/routes.dart' as routes;
 import 'services/login_service.dart';
 import 'services/category_selection_service.dart';
 import 'cart/cart_service.dart';
-import 'views/welcome/welcome_page.dart';
+import 'views/onboarding/onboarding_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +35,7 @@ class OrillaFrescaApp extends StatelessWidget {
         onGenerateRoute: routes.generateRoute,
         onGenerateInitialRoutes: (String initialRouteName) => [
           routes.generateRoute(
-            const RouteSettings(name: routes.splashPage, arguments: WelcomePage()),
+            const RouteSettings(name: routes.splashPage, arguments: OnboardingPage()),
           ),
         ],
         initialRoute: routes.splashPage,

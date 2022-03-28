@@ -6,26 +6,38 @@ import '../../../helper/utils.dart';
 import '../../../cart/cart_service.dart';
 import '../../../config/theme/colors.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final List<String> _pages = [
-      routes.catListPage,
-      routes.shoppingListPage,
-      routes.favoritesPage,
-      routes.settingsPage,
-    ];
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
 
+int _currentIndex = 0;
+final List<String> _pages = [
+  routes.catListPage,
+  routes.shoppingListPage,
+  routes.favoritesPage,
+  routes.settingsPage,
+];
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  @override
+  Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppColors.primary,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      onTap: (i) => Utils.mainListNav.currentState!.pushReplacementNamed(_pages[i]),
+      currentIndex: _currentIndex,
+      onTap: (i) {
+        if (i != _currentIndex) {
+          Utils.mainListNav.currentState!.pushReplacementNamed(_pages[i]);
+          setState(() => _currentIndex = i);
+        }
+      },
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.list_rounded),
