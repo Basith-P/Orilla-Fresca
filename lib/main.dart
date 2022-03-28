@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
 import 'config/theme/app_theme.dart';
+import 'helper/utils.dart';
 import 'config/routes.dart' as routes;
 import 'services/login_service.dart';
 import 'services/category_selection_service.dart';
@@ -29,6 +30,7 @@ class OrillaFrescaApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Orilla Fresca',
         theme: AppTheme.lightTheme,
+        navigatorKey: Utils.mainAppNav,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: routes.generateRoute,
         onGenerateInitialRoutes: (String initialRouteName) => [

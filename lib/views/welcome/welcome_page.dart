@@ -69,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 60),
                 ThemeButton(
                   label: 'Take a look',
-                  onClick: () => Navigator.pushReplacementNamed(context, routes.catListPage),
+                  onClick: () => Navigator.pushReplacementNamed(context, routes.homePage),
                 ),
                 const SizedBox(height: 20),
                 ThemeButton(
@@ -77,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                   onClick: () async {
                     final success = await context.read<LoginService>().signInWithGoogle();
                     if (success) {
-                      Navigator.pushNamed(context, routes.catListPage);
+                      Navigator.pushNamed(context, routes.homePage);
                     }
                   },
                   labelColor: AppColors.primary,

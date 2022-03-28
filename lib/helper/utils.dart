@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:orilla_fresca/models/onboarding_content.dart';
 
 import '../config/theme/colors.dart';
@@ -7,6 +8,9 @@ import '../models/sub_category.dart';
 import 'icon_helper.dart';
 
 class Utils {
+  static GlobalKey<NavigatorState> mainListNav = GlobalKey();
+  static GlobalKey<NavigatorState> mainAppNav = GlobalKey();
+
   static List<OnboardingContent> getOnboarding() {
     return [
       OnboardingContent(
