@@ -29,4 +29,14 @@ class CartService with ChangeNotifier {
         ? _cartItems.any((element) => element.category.name == item.name)
         : false;
   }
+
+  SubCategoryModel? getCategoryFromCart(SubCategoryModel cat) {
+    SubCategoryModel? subCat = cat;
+    if (_cartItems.isNotEmpty &&
+        _cartItems.any((CartItem item) => item.category.name == cat.name)) {
+      CartItem cartItem = _cartItems.firstWhere((CartItem item) => item.category.name == cat.name);
+      subCat = cartItem.category as SubCategoryModel?;
+    }
+    return subCat;
+  }
 }

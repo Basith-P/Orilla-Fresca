@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orilla_fresca/cart/cart_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../helper/utils.dart';
@@ -41,10 +42,11 @@ class SelectecCategoryPage extends StatelessWidget {
               children: List.generate(
                 selectedCategory.subCategories!.length,
                 (index) {
-                  final subcategory = selectedCategory.subCategories![index];
+                  var subcategory = selectedCategory.subCategories![index];
                   return GestureDetector(
                     onTap: () {
-                      categoryProvR.selectedSubCategory = subcategory;
+                      categoryProvR.selectedSubCategory =
+                          context.read<CartService>().getCategoryFromCart(subcategory)!;
                       Utils.mainAppNav.currentState!.pushNamed(routes.detailsPage);
                     },
                     child: Column(

@@ -1,27 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca/models/sub_category.dart';
 import 'package:provider/provider.dart';
 
+import '../../config/theme/colors.dart';
+import '../../models/sub_category.dart';
 import '../../cart/cart_service.dart';
 
-class ShoppingListPage extends StatelessWidget {
-  const ShoppingListPage({Key? key}) : super(key: key);
+class CartPage extends StatelessWidget {
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final cartService = context.watch<CartService>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'Your Cart',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Your Cart',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+                if (cartService.cartItems.isNotEmpty)
+                  TextButton.icon(
+                    onPressed: () => cartService.clearCart(),
+                    icon: const Icon(Icons.delete_forever_rounded),
+                    label: const Text(
+                      'Clear cart',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      primary: AppColors.meats.withOpacity(.8),
+                      backgroundColor: AppColors.primary.withOpacity(.2),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.fromLTRB(15, 5, 20, 5),
+                    ),
+                  )
+              ],
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -31,7 +55,14 @@ class ShoppingListPage extends StatelessWidget {
                   double mainTotal = 0;
 
                   if (cart.cartItems.isEmpty) {
-                    return const Text('Your cart is empty');
+                    return const Center(
+                        child: Text(
+                      'Your cart is empty',
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.grey,
+                      ),
+                    ));
                   } else {
                     for (var item in cart.cartItems) {
                       SubCategoryModel subCat = item.category as SubCategoryModel;
@@ -82,7 +113,7 @@ class ShoppingListPage extends StatelessWidget {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () => cart.removeCartItem(item),
                                 icon: const Icon(
                                   Icons.highlight_off_rounded,
                                   color: Colors.grey,
@@ -113,7 +144,7 @@ class ShoppingListPage extends StatelessWidget {
                             ),
                             child: Text(
                               'Total: Rs.$mainTotal',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

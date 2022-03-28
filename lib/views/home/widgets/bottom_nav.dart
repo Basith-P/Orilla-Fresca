@@ -18,7 +18,7 @@ class BottomNavBar extends StatefulWidget {
 int _currentIndex = 0;
 final List<String> _pages = [
   routes.catListPage,
-  routes.shoppingListPage,
+  routes.cartPage,
   routes.favoritesPage,
   routes.settingsPage,
 ];
@@ -31,6 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       selectedItemColor: AppColors.primary,
       showSelectedLabels: false,
       showUnselectedLabels: false,
+      elevation: 0,
       currentIndex: _currentIndex,
       onTap: (i) {
         if (i != _currentIndex) {

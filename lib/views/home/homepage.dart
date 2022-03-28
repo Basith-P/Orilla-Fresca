@@ -38,8 +38,8 @@ class HomePage extends StatelessWidget {
                   case routes.favoritesPage:
                     page = const FavoritesPage();
                     break;
-                  case routes.shoppingListPage:
-                    page = const ShoppingListPage();
+                  case routes.cartPage:
+                    page = const CartPage();
                     break;
                   case routes.settingsPage:
                     page = const SettingsPage();

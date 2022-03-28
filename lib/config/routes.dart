@@ -17,7 +17,7 @@ const String splashPage = 'splashPage';
 const String welcomePage = 'welcomePage';
 const String favoritesPage = 'favoritesPage';
 const String settingsPage = 'settingsPage';
-const String shoppingListPage = 'shoppingListPage';
+const String cartPage = 'cartPage';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   final args = settings.arguments;
