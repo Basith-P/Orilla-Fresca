@@ -16,4 +16,14 @@ class CategoryModel {
     required this.imgName,
     this.subCategories,
   });
+
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
+      name: json['name'],
+      icon: json['icon'],
+      color: Color(int.parse('0xFF' + json['color'])),
+      imgName: json['imgName'],
+      subCategories: SubCategoryModel.fromJsonList(json['subCategories']),
+    );
+  }
 }

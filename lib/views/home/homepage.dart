@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/bottom_nav.dart';
+import '../../config/routes.dart' as routes;
 import '../cat_list/cat_list_page.dart';
 import '../favorites/favorites_page.dart';
 import '../settings/settings_page.dart';
-import '../shpping_list/shopping_list_page.dart';
-import 'widgets/bottom_nav.dart';
-import '../../config/routes.dart' as routes;
+import '../../cart/cart_page.dart';
 import '../../helper/utils.dart';
 import '../../views/cat_list/widgets/left_drawer.dart';
 import '../../widgets/main_app_bar.dart';
