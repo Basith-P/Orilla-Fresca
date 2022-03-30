@@ -4,16 +4,18 @@ import 'package:provider/provider.dart';
 import 'widgets/category_card.dart';
 import '../../config/routes.dart' as routes;
 import '../../services/category_selection_service.dart';
+import '../../services/category_service.dart';
 import '../../models/category.dart';
 import '../../helper/utils.dart';
 
 class CategoryListPage extends StatelessWidget {
   CategoryListPage({Key? key}) : super(key: key);
 
-  final List<CategoryModel> _categories = Utils.getMockedCategories();
+  List<CategoryModel> _categories = [];
 
   @override
   Widget build(BuildContext context) {
+    _categories = context.read<CategoryService>().categories;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
