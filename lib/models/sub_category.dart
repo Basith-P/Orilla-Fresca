@@ -30,7 +30,7 @@ class SubCategoryModel extends CategoryModel {
       color: Color(int.parse('0xFF' + json['color'])),
       imgName: json['imgName'],
       parts: CategoryPart.fromJsonList(json['parts']),
-      price: double.parse(json['price']),
+      price: json['price'].toDouble(),
     );
   }
 

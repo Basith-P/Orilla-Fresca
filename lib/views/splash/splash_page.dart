@@ -22,18 +22,9 @@ class SplashPage extends StatelessWidget {
     Future.delayed(
       Duration(seconds: duration),
       () async {
-        try {
-          print('INFO: \n\n\n\n[SplashPage] getCategoriesFromFirestore\n\n\n\n');
-          context
-              .read<CategoryService>()
-              .getCategoriesFromFirestore()
-              .then((value) => Utils.mainAppNav.currentState!.pushReplacement(
-                    MaterialPageRoute(builder: (context) => goToPage),
-                  ));
-          print('\n\n\n\n[SplashPage] getCategoriesFromFirestore done\n\n\n\n');
-        } catch (e) {
-          print('\n\n\n\n$e\n\n\n\n');
-        }
+        await context.read<CategoryService>().getCategoriesFromFirestore();
+        Utils.mainAppNav.currentState!
+            .pushReplacement(MaterialPageRoute(builder: (context) => goToPage));
       },
     );
 

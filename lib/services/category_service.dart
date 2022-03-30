@@ -15,8 +15,7 @@ class CategoryService {
     var categoriesData = data['categories'] as List<dynamic>;
 
     for (var catData in categoriesData) {
-      print(catData + '\n.\n');
-      //   _categories.add(CategoryModel.fromJson(catData));
+      _categories.add(CategoryModel.fromJson(catData));
     }
   }
 }
