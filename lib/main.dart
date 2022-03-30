@@ -7,6 +7,7 @@ import 'helper/utils.dart';
 import 'config/routes.dart' as routes;
 import 'services/login_service.dart';
 import 'services/category_selection_service.dart';
+import 'services/category_service.dart';
 import 'cart/cart_service.dart';
 import 'views/onboarding/onboarding_page.dart';
 
@@ -24,6 +25,7 @@ class OrillaFrescaApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider(create: (_) => LoginService()),
+        Provider(create: (_) => CategoryService()),
         ChangeNotifierProvider(create: (_) => CategorySelectionService()),
         ChangeNotifierProvider(create: (_) => CartService()),
       ],

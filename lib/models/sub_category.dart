@@ -30,11 +30,10 @@ class SubCategoryModel extends CategoryModel {
       color: Color(int.parse('0xFF' + json['color'])),
       imgName: json['imgName'],
       parts: CategoryPart.fromJsonList(json['parts']),
-      price: json['price'],
+      price: double.parse(json['price']),
     );
   }
 
-//fromJsonList
   static List<SubCategoryModel> fromJsonList(List<dynamic> jsonList) {
     List<SubCategoryModel> subCategoriesFromJson = [];
 

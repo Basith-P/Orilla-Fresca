@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:orilla_fresca/models/category.dart';
+
+import '../../models/category.dart';
 
 class CategoryService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -12,5 +13,10 @@ class CategoryService {
     final snapshot = await _firestore.collection('data').doc('categories').get();
     var data = snapshot.data() as Map<String, dynamic>;
     var categoriesData = data['categories'] as List<dynamic>;
+
+    for (var catData in categoriesData) {
+      print(catData + '\n.\n');
+      //   _categories.add(CategoryModel.fromJson(catData));
+    }
   }
 }
