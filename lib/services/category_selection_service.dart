@@ -20,16 +20,16 @@ class CategorySelectionService with ChangeNotifier {
   }
 
   void incrementSubCatAmount() {
-    _selectedSubCategory.amount++;
+    _selectedSubCategory.quantity++;
     notifyListeners();
   }
 
   void decrementSubCatAmount() {
-    _selectedSubCategory.amount--;
+    _selectedSubCategory.quantity--;
     notifyListeners();
   }
 
   int get subCatAmount {
-    return _selectedSubCategory.amount;
+    return _selectedSubCategory.quantity;
   }
 }

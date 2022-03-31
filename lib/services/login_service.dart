@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:orilla_fresca/models/user_model.dart';
 
-class LoginService {
+class LoginService with ChangeNotifier {
   UserModel? _userModel;
 
   UserModel? get loggedInUser => _userModel;
@@ -28,6 +29,7 @@ class LoginService {
     //Once signed in , return the user credentials
     UserCredential userCreds = await FirebaseAuth.instance.signInWithCredential(credential);
     _userModel = UserModel(
+      uid: userCreds.user!.uid,
       displayName: userCreds.user!.displayName!,
       email: userCreds.user!.email!,
       photoUrl: userCreds.user!.photoURL!,
@@ -35,9 +37,10 @@ class LoginService {
     return true;
   }
 
-  //signOut
   Future<void> logOut() async {
     await GoogleSignIn().signOut();
     _userModel = null;
   }
+
+  bool get isLoggedIn => _userModel != null;
 }

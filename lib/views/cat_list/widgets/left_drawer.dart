@@ -37,7 +37,7 @@ class LeftDrawer extends StatelessWidget {
                   } else {
                     await context.read<LoginService>().signInWithGoogle();
                     Utils.mainAppNav.currentState!
-                        .pushNamedAndRemoveUntil(routes.catListPage, (route) => false);
+                        .pushNamedAndRemoveUntil(routes.homePage, (route) => false);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Signed in successfully'),

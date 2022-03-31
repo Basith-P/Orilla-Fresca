@@ -66,7 +66,7 @@ class CartPage extends StatelessWidget {
                   } else {
                     for (var item in cart.cartItems) {
                       SubCategoryModel subCat = item.category as SubCategoryModel;
-                      double subTotal = subCat.price * subCat.amount;
+                      double subTotal = subCat.price * subCat.quantity;
                       mainTotal += subTotal;
 
                       cartItems.add(
@@ -101,11 +101,11 @@ class CartPage extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      'quantity: ${subCat.amount}',
+                                      'quantity: ${subCat.quantity}',
                                       style: const TextStyle(color: Colors.grey),
                                     ),
                                     Text(
-                                      'Rs.${subCat.price * subCat.amount}',
+                                      'Rs.${subCat.price * subCat.quantity}',
                                       style: TextStyle(
                                           color: subCat.color, fontWeight: FontWeight.bold),
                                     ),

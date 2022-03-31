@@ -136,6 +136,7 @@ class DetailsPage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               onClick: () => context.read<CartService>().addCartItem(
+                                    context,
                                     CartItem(category: subCat),
                                   ),
                             );
